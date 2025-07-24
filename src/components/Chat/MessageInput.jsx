@@ -26,7 +26,7 @@ const MessageInput = ({ onSendMessage, onTyping, onStopTyping, disabled }) => {
       clearTimeout(typingTimeoutRef.current);
     }
 
-    // Set new timeout to stop typing
+    // Set new timeout
     typingTimeoutRef.current = setTimeout(() => {
       setIsTyping(false);
       onStopTyping();
@@ -41,7 +41,7 @@ const MessageInput = ({ onSendMessage, onTyping, onStopTyping, disabled }) => {
       onSendMessage(trimmedMessage);
       setMessage('');
       
-      // Clear typing timeout and stop typing
+      // Clear typing timeout
       if (typingTimeoutRef.current) {
         clearTimeout(typingTimeoutRef.current);
       }
